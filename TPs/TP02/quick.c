@@ -327,7 +327,7 @@ int main() {
     }
 
     double tempo = (double) (fim - inicio) / CLOCKS_PER_SEC * 1000;//ms
-    arqLog("818126", tempo, comparacoes, movimentacoes);
+    arqLog("123456", tempo, comparacoes, movimentacoes);
 
     return 0;
 }
