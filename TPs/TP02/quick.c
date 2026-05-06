@@ -1,3 +1,6 @@
+//Algoritmos e Estruturas de Dados 2 ----- Trabalho Prático 2
+// Questão 8 ----- Ordenação por QuickSort em C
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,8 +13,6 @@ int getTamanho (char* s) {
      }
      return tamanho;
 }
-
-////////*DATA*///////////
 
 typedef struct {
      int ano;
@@ -29,8 +30,6 @@ void formatar_Data (Data* d, char* buffer) {
      sprintf (buffer, "%02d/%02d/%04d", d->dia, d->mes, d->ano);
 }
 
-//////////*HORA*///////////
-
 typedef struct {
      int hora;
      int minuto;
@@ -46,7 +45,6 @@ void formatar_Hora (Hora* h, char* buffer) {
      sprintf (buffer, "%02d:%02d", h->hora, h->minuto);
 }
 
-//////////*RESTAURANTE*////////////////
 typedef struct {
      int id;
      char nome[100];
@@ -146,8 +144,8 @@ Restaurante* parseRestaurante(char* linhaCSV) {
 }
 
 char* formatar_Restaurante(Restaurante* r, char* buffer) {
-     char horaAB[6], horaFECH[6]; //HH:mm\0
-     char data[11]; //dd/mm/yyyy\0
+     char horaAB[6], horaFECH[6]; 
+     char data[11]; 
 
      formatar_Hora(&r->horarioAbertura, horaAB);
      formatar_Hora(&r->horarioFechamento, horaFECH);
@@ -192,7 +190,6 @@ char* formatar_Restaurante(Restaurante* r, char* buffer) {
      );
 }
 
-//////////////*COLEÇÃO RESTAURANTE*////////////////////
 typedef struct {
      int tamanho;
      Restaurante **restaurantes;
@@ -205,7 +202,7 @@ void lerCSV (colecaoRestaurante* colecao, char* path) {
           return;
      } else { 
           char linha[1024];
-          fgets(linha, sizeof(linha), arq); //pula o cabeçalho
+          fgets(linha, sizeof(linha), arq); 
 
           int count = 0;
           while (fgets(linha, sizeof(linha), arq) != NULL) {
@@ -281,7 +278,6 @@ void quicksort (Restaurante** array, int n, long* comp, long* mov) {
      quicksortRec(array, 0, n - 1, comp, mov);
 }
 
-/////////*ARQUIVO LOG*//////////////
 void arqLog (char* matricula, long tempo, long comp, long mov) {
      char nomeArq[100];
      sprintf (nomeArq, "%s_quicksort.txt", matricula);
@@ -293,7 +289,6 @@ void arqLog (char* matricula, long tempo, long comp, long mov) {
           printf ("Erro no arquivo.");
      }
 }
-////////*MAIN*///////////
 
 int main() {
      colecaoRestaurante* colecao = lerCsv();
