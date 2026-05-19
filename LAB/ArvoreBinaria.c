@@ -1,8 +1,9 @@
+//Algoritmos e Estruturas de Dados 2 ----- Laboratório
+// Exercício Árvore Binária em C
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-// ==================== STRUCT NO ====================
 
 typedef struct No {
     int elemento;
@@ -10,7 +11,6 @@ typedef struct No {
     struct No* dir;
 } No;
 
-// Cria um novo nó
 No* new_no(int elemento) {
     No* novo = (No*) malloc(sizeof(No));
 
@@ -21,7 +21,6 @@ No* new_no(int elemento) {
     return novo;
 }
 
-// Remove recursivamente os nós
 void delete_no(No* no) {
     if (no != NULL) {
         delete_no(no->esq);
@@ -30,28 +29,22 @@ void delete_no(No* no) {
     }
 }
 
-// ==================== STRUCT ARVORE ====================
-
 typedef struct ArvoreBinaria {
     No* raiz;
 } ArvoreBinaria;
 
-// Cria uma nova árvore
 ArvoreBinaria* new_arvore_binaria() {
     ArvoreBinaria* ab = (ArvoreBinaria*) malloc(sizeof(ArvoreBinaria));
     ab->raiz = NULL;
     return ab;
 }
 
-// Remove a árvore
 void delete_arvore_binaria(ArvoreBinaria* ab) {
     if (ab != NULL) {
         delete_no(ab->raiz);
         free(ab);
     }
 }
-
-// ==================== INSERÇÃO ====================
 
 No* inserir_rec(No* raiz, int x) {
 
@@ -71,8 +64,6 @@ No* inserir_rec(No* raiz, int x) {
 void inserir(ArvoreBinaria* ab, int x) {
     ab->raiz = inserir_rec(ab->raiz, x);
 }
-
-// ==================== PESQUISA ====================
 
 int pesquisar_rec(No* raiz, int x) {
 
@@ -97,8 +88,6 @@ int pesquisar(ArvoreBinaria* ab, int x) {
     return pesquisar_rec(ab->raiz, x);
 }
 
-// ==================== CAMINHAMENTOS ====================
-
 void pre_rec(No* raiz) {
     if (raiz != NULL) {
         printf("%d ", raiz->elemento);
@@ -118,8 +107,6 @@ void caminhar_pre(ArvoreBinaria* ab) {
 
     printf("\n");
 }
-
-// --------------------
 
 void pos_rec(No* raiz) {
     if (raiz != NULL) {
@@ -141,8 +128,6 @@ void caminhar_pos(ArvoreBinaria* ab) {
     printf("\n");
 }
 
-// --------------------
-
 void em_rec(No* raiz) {
     if (raiz != NULL) {
         em_rec(raiz->esq);
@@ -163,8 +148,6 @@ void caminhar_em(ArvoreBinaria* ab) {
     printf("\n");
 }
 
-// ==================== MAIN ====================
-
 int main() {
 
     ArvoreBinaria* ab = new_arvore_binaria();
@@ -174,13 +157,11 @@ int main() {
 
     while (scanf("%s", comando) != EOF) {
 
-        // Inserir
         if (strcmp(comando, "I") == 0) {
             scanf("%d", &valor);
             inserir(ab, valor);
         }
 
-        // Pesquisar
         else if (strcmp(comando, "P") == 0) {
 
             scanf("%d", &valor);
@@ -195,17 +176,14 @@ int main() {
             }
         }
 
-        // Pré-ordem
         else if (strcmp(comando, "PRE") == 0) {
             caminhar_pre(ab);
         }
 
-        // Pós-ordem
         else if (strcmp(comando, "POS") == 0) {
             caminhar_pos(ab);
         }
 
-        // Em-ordem
         else if (strcmp(comando, "EM") == 0) {
             caminhar_em(ab);
         }
