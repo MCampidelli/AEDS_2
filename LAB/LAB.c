@@ -1,3 +1,6 @@
+// Algoritmos e Estruturas de Dados 2 ----- Laboratório
+//Exercício Concurso de Levantamento de Peso em C
+
 #include <stdio.h>
 #include <string.h>
 
