@@ -1,6 +1,7 @@
-import java.util.Scanner;
+//Algoritmos e Estruturas de Dados 2 ----- Laboratório
+//Exercício Árvore Binária em Java
 
-// ==================== CLASSE NO ====================
+import java.util.Scanner;
 
 class No {
     int elemento;
@@ -13,8 +14,6 @@ class No {
     }
 }
 
-// ==================== CLASSE ARVORE BINARIA ====================
-
 class ArvoreBinaria {
 
     private No raiz;
@@ -22,8 +21,6 @@ class ArvoreBinaria {
     public ArvoreBinaria() {
         raiz = null;
     }
-
-    // ==================== INSERIR ====================
 
     public void inserir(int x) {
         raiz = inserir(x, raiz);
@@ -43,8 +40,6 @@ class ArvoreBinaria {
 
         return i;
     }
-
-    // ==================== PESQUISAR ====================
 
     public boolean pesquisar(int x) {
         return pesquisar(x, raiz);
@@ -75,8 +70,6 @@ class ArvoreBinaria {
         return resp;
     }
 
-    // ==================== PRE ORDEM ====================
-
     public void caminharPre() {
 
         if (raiz == null) {
@@ -96,8 +89,6 @@ class ArvoreBinaria {
             caminharPre(i.dir);
         }
     }
-
-    // ==================== POS ORDEM ====================
 
     public void caminharPos() {
 
@@ -119,8 +110,6 @@ class ArvoreBinaria {
         }
     }
 
-    // ==================== EM ORDEM ====================
-
     public void caminharEm() {
 
         if (raiz == null) {
@@ -141,8 +130,6 @@ class ArvoreBinaria {
         }
     }
 }
-
-// ==================== MAIN ====================
 
 public class LabArvoreBinaria {
 
