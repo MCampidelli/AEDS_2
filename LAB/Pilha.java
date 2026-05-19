@@ -1,3 +1,6 @@
+//Algoritmos e Estruturas de Dados 2 ----- Laboratório
+//Exercício Pilha em Java
+
 import java.util.*;
 
 class Pilha {
