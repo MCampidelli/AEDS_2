@@ -1,4 +1,4 @@
-//Algoritmos e Estruturas de Dados 2 ----- Laboratório
+// Algoritmos e Estruturas de Dados 2 ----- Laboratório
 // Exercício Árvore Binária em C
 
 #include <stdio.h>
